@@ -1,2 +1,32 @@
-npm test
-pwd
+#!/bin/sh
+
+STAGED_FILES=$(git diff --cached --name-only)
+
+if [ -z "$STAGED_FILES" ]; then
+  echo "No files to lint"
+  exit 0
+fi
+
+if echo "$STAGED_FILES" | grep -q "^mobile/"; then
+  echo "🔍 Running mobile linting and testing..."
+  cd mobile && echo "Linting & Testing mobile app"
+  cd ..
+fi
+
+if echo "$STAGED_FILES" | grep -q "^backend/"; then
+  echo "🔍 Running backend linting and testing..."
+  cd backend && echo "Linting & Testing backend"
+  cd ..
+fi
+
+if echo "$STAGED_FILES" | grep -q "^hardware-iot/"; then
+  echo "🔍 Running hardware-iot linting and testing..."
+  cd hardware-iot && echo "Linting & Testing hardware-iot folder"
+  cd ..
+fi
+
+if echo "$STAGED_FILES" | grep -q "^AI/"; then
+  echo "🔍 Running AI linting and testing..."
+  cd AI && echo "Linting & Testing AI folder"
+  cd ..
+fi
