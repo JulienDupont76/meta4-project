@@ -1,11 +1,17 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Text } from 'react-native';
 
-import EditScreenInfo from '@/components/EditScreenInfo';
-import { Text, View } from '@/components/Themed';
-import MapView, { Marker } from 'react-native-maps';
-import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+import MapView from 'react-native-maps';
+import Pins from '@/components/mapView/Pins';
+import { useCallback, useRef } from 'react';
+import BottomSheet, { BottomSheetView } from '@gorhom/bottom-sheet';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 export default function TabOneScreen() {
+	const bottomSheetRef = useRef<BottomSheet>(null);
+	const handleSheetChanges = useCallback((index: number) => {
+		console.log('handleSheetChanges', index);
+	}, []);
+
 	const mapStyle = [
 		{
 			elementType: 'geometry',
@@ -239,7 +245,7 @@ export default function TabOneScreen() {
 		},
 	];
 	return (
-		<View style={styles.container}>
+		<GestureHandlerRootView style={styles.container}>
 			<MapView
 				provider='google'
 				customMapStyle={mapStyle}
@@ -264,56 +270,34 @@ export default function TabOneScreen() {
 				showsPointsOfInterest={false}
 				style={styles.map}
 			>
-				<Marker
+				<Pins
 					coordinate={{
 						latitude: 36.3737192,
 						longitude: 127.359222,
 					}}
-					onSelect={() => {
-						console.log('Marker selected');
-					}}
-				>
-					<View style={styles.wrapper}>
-						<View style={styles.property}>
-							<View style={styles.innerIcon}>
-								<MaterialIcons name='restaurant' size={13} color='white' />
-							</View>
-						</View>
-						<View style={styles.propertyAfter} />
-					</View>
-				</Marker>
-				<Marker
+					type='restaurant'
+				/>
+				<Pins
 					coordinate={{
 						latitude: 36.368584,
 						longitude: 127.364576,
 					}}
-				>
-					<View style={styles.wrapper}>
-						<View style={styles.property}>
-							<View style={[styles.innerIcon, { backgroundColor: '#00B4A7' }]}>
-								<MaterialIcons name='local-cafe' size={13} color='white' />
-							</View>
-						</View>
-						<View style={styles.propertyAfter} />
-					</View>
-				</Marker>
-				<Marker
+					type='cafe'
+				/>
+				<Pins
 					coordinate={{
 						latitude: 36.369649,
 						longitude: 127.362527,
 					}}
-				>
-					<View style={styles.wrapper}>
-						<View style={styles.property}>
-							<View style={[styles.innerIcon, { backgroundColor: '#FFB503' }]}>
-								<MaterialIcons name='menu-book' size={13} color='white' />
-							</View>
-						</View>
-						<View style={styles.propertyAfter} />
-					</View>
-				</Marker>
+					type='library'
+				/>
 			</MapView>
-		</View>
+			<BottomSheet ref={bottomSheetRef} onChange={handleSheetChanges} index={0}>
+				<BottomSheetView style={styles.contentContainer}>
+					<Text>Awesome 🎉</Text>
+				</BottomSheetView>
+			</BottomSheet>
+		</GestureHandlerRootView>
 	);
 }
 
@@ -327,71 +311,9 @@ const styles = StyleSheet.create({
 		width: '100%',
 		height: '100%',
 	},
-	wrapper: {
+	contentContainer: {
+		flex: 1,
+		padding: 36,
 		alignItems: 'center',
-		justifyContent: 'center',
-		position: 'relative',
-		backgroundColor: 'transparent',
-	},
-	property: {
-		backgroundColor: 'white',
-		borderRadius: 15,
-		height: 30,
-		width: 30,
-		padding: 2,
-		alignItems: 'center',
-		justifyContent: 'center',
-		zIndex: 2,
-	},
-	innerIcon: {
-		backgroundColor: '#FF7500',
-		padding: 6,
-		borderRadius: 100,
-		alignItems: 'center',
-		justifyContent: 'center',
-	},
-	propertyAfter: {
-		position: 'absolute',
-		top: 27.4,
-		width: 0,
-		height: 0,
-		backgroundColor: 'transparent',
-		borderLeftWidth: 9,
-		borderRightWidth: 9,
-		borderTopWidth: 9,
-		borderLeftColor: 'transparent',
-		borderRightColor: 'transparent',
-		borderTopColor: 'white',
-
-		zIndex: 1,
-	},
-	markerContainer: {
-		alignItems: 'center',
-		backgroundColor: 'transparent',
-	},
-	pin: {
-		width: 40,
-		height: 40,
-		borderRadius: 20,
-		backgroundColor: 'white',
-		justifyContent: 'center',
-		alignItems: 'center',
-		shadowColor: '#000',
-		shadowOpacity: 0,
-		shadowRadius: 4,
-		elevation: 5,
-	},
-	iconBackground: {
-		width: 30,
-		height: 30,
-		borderRadius: 15,
-		backgroundColor: 'orange',
-		justifyContent: 'center',
-		alignItems: 'center',
-	},
-	burgerIcon: {
-		width: 20,
-		height: 20,
-		tintColor: 'white',
 	},
 });
