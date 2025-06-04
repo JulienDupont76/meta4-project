@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "name": "Kaimaru",
+    "type": "restaurant",
+    "status": "Open",
+    "openingTime": "Opens at 11:30",
+    "rating": 4.2,
+    "reviews": 320,
+    "address": "KAIST Main Campus, Daejeon, South Korea",
+    "images": ["Kaimaru_1.jpeg", "Kaimaru_2.jpg", "Kaimaru_3.jpg"]
+  },
+  {
+    "id": 2,
+    "name": "Pascucci",
+    "type": "cafe",
+    "status": "Closed",
+    "openingTime": "Opens at 09:00",
+    "rating": 4.0,
+    "reviews": 211,
+    "address": "Pascucci Building, KAIST, Daejeon",
+    "images": ["Kaimaru_1.jpeg", "Kaimaru_2.jpg", "Kaimaru_3.jpg"]
+  },
+  {
+    "id": 3,
+    "name": "Library",
+    "type": "library",
+    "status": "Open",
+    "openingTime": "Open 24h",
+    "rating": 4.8,
+    "reviews": 1234,
+    "address": "Main Library, KAIST, Daejeon",
+    "images": ["Kaimaru_1.jpeg", "Kaimaru_2.jpg", "Kaimaru_3.jpg"]
+  },
+  {
+    "id": 4,
+    "name": "Angelinus",
+    "type": "cafe",
+    "status": "Open",
+    "openingTime": "Opens at 08:00",
+    "rating": 3.9,
+    "reviews": 95,
+    "address": "Angelinus, near KAIST East Gate",
+    "images": ["JM_1.jpeg", "JM_2.jpeg", "JM_3.jpeg"]
+  },
+  {
+    "id": 5,
+    "name": "Ogada",
+    "type": "cafe",
+    "status": "Closed",
+    "openingTime": "Opens at 10:00",
+    "rating": 4.5,
+    "reviews": 187,
+    "address": "Ogada, Eoeun-dong, Daejeon",
+    "images": ["Kaimaru_1.jpeg", "Kaimaru_2.jpg", "Kaimaru_3.jpg"]
+  },
+  {
+    "id": 6,
+    "name": "Subway",
+    "type": "restaurant",
+    "status": "Open",
+    "openingTime": "Opens at 11:00",
+    "rating": 4.1,
+    "reviews": 432,
+    "address": "Subway Restaurant, KAIST Campus",
+    "images": ["Kaimaru_1.jpeg", "Kaimaru_2.jpg", "Kaimaru_3.jpg"]
+  }
+]

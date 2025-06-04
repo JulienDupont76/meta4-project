@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Kaimaru",
+    "latitude": 36.3737192,
+    "longitude": 127.359222,
+    "type": "restaurant"
+  },
+  {
+    "id": 2,
+    "name": "Pascucci",
+    "latitude": 36.368584,
+    "longitude": 127.364576,
+    "type": "cafe"
+  },
+  {
+    "id": 3,
+    "name": "Library",
+    "latitude": 36.369649,
+    "longitude": 127.362527,
+    "type": "library"
+  },
+  {
+    "id": 4,
+    "name": "Angelinus",
+    "latitude": 36.373229,
+    "longitude": 127.360671,
+    "type": "cafe"
+  },
+  {
+    "id": 5,
+    "name": "Ogada",
+    "latitude": 36.369151,
+    "longitude": 127.362691,
+    "type": "cafe"
+  },
+  {
+    "id": 6,
+    "name": "Subway",
+    "latitude": 36.371224,
+    "longitude": 127.362342,
+    "type": "restaurant"
+  }
+]
