@@ -3,31 +3,31 @@
 #include <HTTPClient.h>
 #include <ArduinoJson.h>
 
-// Configurazione WiFi
+//  WiFi Configuration
 #define WIFI_SSID "S23 di Marco"
 #define WIFI_PASSWORD "password"
 
-// Configurazione Firebase (stesso stile della camera)
+// Firebase configuration
 const char* FIREBASE_HOST = "esp32device-2fe39-default-rtdb.asia-southeast1.firebasedatabase.app";
-const char* FIREBASE_AUTH = ""; // Lascia vuoto per ora (regole aperte)
-const char* FIREBASE_PATH_DATA = "/esp32-wroom/data"; // Percorso dati sensori
-const char* FIREBASE_PATH_STATUS = "/esp32-wroom/status"; // Stato corrente
+const char* FIREBASE_AUTH = ""; // Open rules for tesing
+const char* FIREBASE_PATH_DATA = "/esp32-wroom/data"; 
+const char* FIREBASE_PATH_STATUS = "/esp32-wroom/status"; // Current status of ESP
 
 // Pin sensori
-#define FSR_PIN 34        // Sensore pressione su GPIO34
-#define TRIG_PIN 2        // HC-SR04 TRIG su D2
-#define ECHO_PIN 4        // HC-SR04 ECHO su D4
+#define FSR_PIN 34        
+#define TRIG_PIN 2       
+#define ECHO_PIN 4        
 
 // Soglie
-#define PRESSURE_THRESHOLD 500   // Soglia per considerare "occupied"
-#define DISTANCE_MIN 5           // Distanza minima in cm
-#define DISTANCE_MAX 200         // Distanza massima in cm
+#define PRESSURE_THRESHOLD 500   
+#define DISTANCE_MIN 5           
+#define DISTANCE_MAX 200        
 
 // Variabili timing
 unsigned long lastSensorRead = 0;
 unsigned long lastStatusUpdate = 0;
-const unsigned long SENSOR_INTERVAL = 30000; // 30 secondi per dati
-const unsigned long STATUS_INTERVAL = 15000; // 15 secondi per stato
+const unsigned long SENSOR_INTERVAL = 30000; // 30 seceonds for data
+const unsigned long STATUS_INTERVAL = 15000; // 15 seconds for the status
 
 void setup() {
   Serial.begin(115200);
@@ -40,7 +40,7 @@ void setup() {
   
   // Connessione WiFi
   WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
-  Serial.print("Connessione WiFi");
+  Serial.print("Connection to the WiFi");
   
   while (WiFi.status() != WL_CONNECTED) {
     Serial.print(".");
@@ -48,11 +48,11 @@ void setup() {
   }
   
   Serial.println();
-  Serial.print("Connesso! IP: ");
+  Serial.print("Connected! IP: ");
   Serial.println(WiFi.localIP());
   
-  Serial.println("Sistema avviato! Comunicazione HTTP con Firebase.");
-  Serial.println("Invio dati ogni 30 secondi...");
+  Serial.println("Sistem up! HTTP comm to Firebase.");
+  Serial.println("Sending data each 30 sec...");
   
   // Invia stato iniziale
   sendStatusToFirebase();
@@ -63,7 +63,7 @@ void loop() {
   
   // Verifica connessione WiFi
   if (WiFi.status() != WL_CONNECTED) {
-    Serial.println("Riconnessione WiFi...");
+    Serial.println("Riconnection to the WiFi...");
     WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
     delay(5000);
     return;
@@ -71,16 +71,16 @@ void loop() {
   
   // Invia dati sensori ogni 30 secondi
   if (currentTime - lastSensorRead >= SENSOR_INTERVAL) {
-    Serial.println("Lettura sensori...");
+    Serial.println("Reading sensors...");
     if (sendSensorDataToFirebase()) {
       lastSensorRead = currentTime;
     } else {
-      // Riprova tra 10 secondi se fallisce
+     
       lastSensorRead = currentTime - 20000;
     }
   }
   
-  // Aggiorna stato ogni 15 secondi
+  
   if (currentTime - lastStatusUpdate >= STATUS_INTERVAL) {
     sendStatusToFirebase();
     lastStatusUpdate = currentTime;
@@ -89,28 +89,25 @@ void loop() {
   delay(1000);
 }
 
-// ===== FUNZIONE LETTURA DISTANZA HC-SR04 =====
+
 float readDistance() {
-  // Pulisce il pin trigger
+ 
   digitalWrite(TRIG_PIN, LOW);
   delayMicroseconds(2);
   
-  // Invia impulso trigger
   digitalWrite(TRIG_PIN, HIGH);
   delayMicroseconds(10);
   digitalWrite(TRIG_PIN, LOW);
-  
-  // Legge il tempo di risposta
   long duration = pulseIn(ECHO_PIN, HIGH, 30000); // Timeout 30ms
   
   if (duration == 0) {
-    return -1; // Errore o fuori range
+    return -1; // Errore o out of range
   }
   
-  // Calcola distanza in cm
+ 
   float distance = (duration * 0.034) / 2;
   
-  // Filtra valori fuori range
+
   if (distance < DISTANCE_MIN || distance > DISTANCE_MAX) {
     return -1;
   }
@@ -118,7 +115,6 @@ float readDistance() {
   return distance;
 }
 
-// ===== FUNZIONE TIMESTAMP LEGGIBILE =====
 String getCurrentTime() {
   unsigned long currentTime = millis();
   unsigned long seconds = currentTime / 1000;
@@ -134,23 +130,20 @@ String getCurrentTime() {
   return String(timeStr);
 }
 
-// ===== INVIO DATI SENSORI A FIREBASE (stile Camera) =====
 bool sendSensorDataToFirebase() {
   if (WiFi.status() != WL_CONNECTED) {
     Serial.println("WiFi non connesso");
     return false;
   }
   
-  // === LETTURA SENSORI ===
   int pressureValue = analogRead(FSR_PIN);
   float distance = readDistance();
   bool isOccupied = pressureValue > PRESSURE_THRESHOLD;
   
-  // === STAMPA VALORI ===
-  Serial.println("--- Lettura Sensori ---");
-  Serial.printf("Pressione: %d (Soglia: %d)\n", pressureValue, PRESSURE_THRESHOLD);
-  Serial.printf("Distanza: %.1f cm\n", distance);
-  Serial.printf("Stato: %s\n", isOccupied ? "OCCUPIED" : "NOT OCCUPIED");
+  Serial.println("--- Sensori ---");
+  Serial.printf("Pressure: %d (Soglia: %d)\n", pressureValue, PRESSURE_THRESHOLD);
+  Serial.printf("Distance: %.1f cm\n", distance);
+  Serial.printf("Status: %s\n", isOccupied ? "OCCUPIED" : "NOT OCCUPIED");
   Serial.println();
   
   HTTPClient http;
@@ -164,24 +157,24 @@ bool sendSensorDataToFirebase() {
   http.begin(url);
   http.addHeader("Content-Type", "application/json");
   
-  // Crea JSON con tutti i dati (stesso stile della camera)
+  // Create JSON as NOSQL
   DynamicJsonDocument doc(500);
   doc["timestamp"] = millis();
   doc["device_id"] = "ESP32-WROOM-SENSORS";
   doc["readable_time"] = getCurrentTime();
   
-  // Dati sensori
+  // Data sensors
   doc["pressure"] = pressureValue;
   doc["distance"] = distance;
   doc["status"] = isOccupied ? "occupied" : "not_occupied";
   doc["is_occupied"] = isOccupied;
   
-  // Soglie e configurazione
+  // tresholds and settings
   doc["pressure_threshold"] = PRESSURE_THRESHOLD;
   doc["distance_min"] = DISTANCE_MIN;
   doc["distance_max"] = DISTANCE_MAX;
   
-  // Info sistema
+  // Info of the system
   doc["wifi_rssi"] = WiFi.RSSI();
   doc["free_heap"] = ESP.getFreeHeap();
   doc["uptime_ms"] = millis();
@@ -193,14 +186,14 @@ bool sendSensorDataToFirebase() {
   
   bool success = false;
   if (httpResponseCode == 200 || httpResponseCode == 201) {
-    Serial.println("✅ Dati sensori inviati!");
-    Serial.println("  Pressione: " + String(pressureValue));
-    Serial.println("  Distanza: " + String(distance) + " cm");
-    Serial.println("  Stato: " + String(isOccupied ? "OCCUPIED" : "NOT OCCUPIED"));
+    Serial.println("✅ Data sended!");
+    Serial.println("  Pression: " + String(pressureValue));
+    Serial.println("  Distance: " + String(distance) + " cm");
+    Serial.println("  Status: " + String(isOccupied ? "OCCUPIED" : "NOT OCCUPIED"));
     Serial.println("  Timestamp: " + String(millis()));
     success = true;
   } else {
-    Serial.println("❌ Errore invio dati sensori:");
+    Serial.println("Error in sending the data:");
     Serial.println("HTTP Code: " + String(httpResponseCode));
     if (httpResponseCode > 0) {
       String response = http.getString();
@@ -212,11 +205,9 @@ bool sendSensorDataToFirebase() {
   return success;
 }
 
-// ===== INVIO STATO CORRENTE A FIREBASE =====
 void sendStatusToFirebase() {
   if (WiFi.status() != WL_CONNECTED) return;
   
-  // Lettura veloce per stato corrente
   int pressureValue = analogRead(FSR_PIN);
   float distance = readDistance();
   bool isOccupied = pressureValue > PRESSURE_THRESHOLD;
@@ -230,7 +221,7 @@ void sendStatusToFirebase() {
   http.begin(url);
   http.addHeader("Content-Type", "application/json");
   
-  // JSON stato corrente (stesso stile della camera)
+
   DynamicJsonDocument doc(400);
   doc["last_seen"] = millis();
   doc["readable_time"] = getCurrentTime();
@@ -239,8 +230,7 @@ void sendStatusToFirebase() {
   doc["free_heap"] = ESP.getFreeHeap();
   doc["uptime_ms"] = millis();
   doc["device_status"] = "online";
-  
-  // Stato sensori corrente
+
   doc["current_pressure"] = pressureValue;
   doc["current_distance"] = distance;
   doc["current_occupancy"] = isOccupied ? "occupied" : "not_occupied";
@@ -257,25 +247,24 @@ void sendStatusToFirebase() {
   http.end();
 }
 
-// ===== FUNZIONE TEST SENSORI =====
 void testSensors() {
   Serial.println("=== TEST SENSORI ===");
   
-  // Test pressione
+  // Test pressure
   int pressure = analogRead(FSR_PIN);
-  Serial.printf("Pressione FSR (GPIO34): %d\n", pressure);
+  Serial.printf(" FSR (GPIO34): %d\n", pressure);
   
-  // Test distanza
+  // Test distance
   float dist = readDistance();
   if (dist > 0) {
-    Serial.printf("Distanza HC-SR04: %.1f cm\n", dist);
+    Serial.printf("Distance HC-SR04: %.1f cm\n", dist);
   } else {
-    Serial.println("Distanza HC-SR04: Errore lettura");
+    Serial.println("Distance HC-SR04: Errore lettura");
   }
   
   // Test stato
   bool occupied = pressure > PRESSURE_THRESHOLD;
-  Serial.printf("Stato: %s\n", occupied ? "OCCUPIED" : "NOT OCCUPIED");
+  Serial.printf("Status: %s\n", occupied ? "OCCUPIED" : "NOT OCCUPIED");
   
   Serial.println("========================\n");
 }
