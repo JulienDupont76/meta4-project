@@ -1,0 +1,135 @@
+[
+  {
+    "id": 1,
+    "facilityId": 1,
+    "occupancyLevel": "high",
+    "date": "2025-06-08",
+    "waitingTime": 30
+  },
+  {
+    "id": 2,
+    "facilityId": 2,
+    "occupancyLevel": "low",
+    "date": "2025-06-08",
+    "waitingTime": 5
+  },
+  {
+    "id": 3,
+    "facilityId": 3,
+    "occupancyLevel": "high",
+    "date": "2025-06-08",
+    "waitingTime": 20
+  },
+  {
+    "id": 4,
+    "facilityId": 4,
+    "occupancyLevel": "low",
+    "date": "2025-06-08",
+    "waitingTime": 3
+  },
+  {
+    "id": 5,
+    "facilityId": 5,
+    "occupancyLevel": "closed",
+    "date": "2025-06-08",
+    "waitingTime": 0
+  },
+  {
+    "id": 6,
+    "facilityId": 6,
+    "occupancyLevel": "medium",
+    "date": "2025-06-08",
+    "waitingTime": 12
+  },
+  {
+    "id": 7,
+    "facilityId": 7,
+    "occupancyLevel": "medium",
+    "date": "2025-06-08",
+    "waitingTime": 12
+  },
+  {
+    "id": 8,
+    "facilityId": 8,
+    "occupancyLevel": "low",
+    "date": "2025-06-08",
+    "waitingTime": 4
+  },
+  {
+    "id": 9,
+    "facilityId": 9,
+    "occupancyLevel": "closed",
+    "date": "2025-06-08",
+    "waitingTime": 0
+  },
+  {
+    "id": 10,
+    "facilityId": 10,
+    "occupancyLevel": "medium",
+    "date": "2025-06-08",
+    "waitingTime": 9
+  },
+  {
+    "id": 11,
+    "facilityId": 11,
+    "occupancyLevel": "closed",
+    "date": "2025-06-08",
+    "waitingTime": 0
+  },
+  {
+    "id": 12,
+    "facilityId": 12,
+    "occupancyLevel": "closed",
+    "date": "2025-06-08",
+    "waitingTime": 0
+  },
+  {
+    "id": 13,
+    "facilityId": 13,
+    "occupancyLevel": "low",
+    "date": "2025-06-08",
+    "waitingTime": 6
+  },
+  {
+    "id": 14,
+    "facilityId": 14,
+    "occupancyLevel": "closed",
+    "date": "2025-06-08",
+    "waitingTime": 0
+  },
+  {
+    "id": 15,
+    "facilityId": 15,
+    "occupancyLevel": "closed",
+    "date": "2025-06-08",
+    "waitingTime": 0
+  },
+  {
+    "id": 16,
+    "facilityId": 16,
+    "occupancyLevel": "low",
+    "date": "2025-06-08",
+    "waitingTime": 2
+  },
+  {
+    "id": 17,
+    "facilityId": 17,
+    "occupancyLevel": "medium",
+    "date": "2025-06-08",
+    "waitingTime": 11
+  },
+  {
+    "id": 18,
+    "facilityId": 18,
+    "occupancyLevel": "closed",
+    "date": "2025-06-08",
+    "waitingTime": 0
+  },
+  {
+    "id": 19,
+    "facilityId": 19,
+    "occupancyLevel": "high",
+    "date": "2025-06-08",
+    "waitingTime": 18
+  }
+]
