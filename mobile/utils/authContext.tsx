@@ -1,3 +1,4 @@
+import { urlAPI } from '@/constants/API';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useMutation } from '@tanstack/react-query';
 import { useRouter } from 'expo-router';
@@ -15,7 +16,6 @@ type AuthState = {
 SplashScreen.preventAutoHideAsync();
 
 const authStorageKey = 'auth-key';
-const urlAPI = 'http://143.248.216.107:3333';
 
 const AuthContext = createContext<AuthState>({
   isLoggedIn: false,
@@ -38,7 +38,6 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
   const router = useRouter();
 
   const storeAuthState = async (state: { isLoggedIn: boolean }) => {
-    // TODO: Store the auth state in AsyncStorage or any other storage
     try {
       const jsonValue = JSON.stringify(state);
       await AsyncStorage.setItem(authStorageKey, jsonValue);
@@ -80,7 +79,7 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
     return token;
   };
 
-  const test = useMutation({
+  const login = useMutation({
     mutationFn: APILogin,
     onSuccess: (token) => {
       // store token, navigate, etc.
@@ -93,7 +92,7 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
 
   const logIn = (email: string, password: string) => {
     console.log('Logging in with email:', email, 'and password:', password);
-    test.mutate({ email, password });
+    login.mutate({ email, password });
     setIsLoggedIn(true);
     storeAuthState({ isLoggedIn: true });
     router.replace('/');
@@ -107,7 +106,6 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
 
   useEffect(() => {
     const getAuthFromStorage = async () => {
-      await new Promise((resolve) => setTimeout(() => resolve(null), 1000)); // Simulate a delay
       try {
         const value = await AsyncStorage.getItem(authStorageKey);
         if (value !== null) {

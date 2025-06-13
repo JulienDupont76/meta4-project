@@ -4,8 +4,8 @@
     "name": "Kaimaru",
     "type": "restaurant",
     "status": "Open",
-    "openingTime": "Opens at 11:30",
-    "rating": 4.2,
+    "openingTime": "Opens at 11:30AM",
+    "rating": 4.5,
     "reviews": 320,
     "address": "KAIST Main Campus, Daejeon, South Korea",
     "images": ["Kaimaru_1.jpeg", "Kaimaru_2.jpg", "Kaimaru_3.jpg"]
@@ -14,12 +14,18 @@
     "id": 2,
     "name": "Pascucci",
     "type": "cafe",
-    "status": "Closed",
-    "openingTime": "Opens at 09:00",
-    "rating": 4.0,
+    "status": "Open",
+    "openingTime": "Opens at 9AM",
+    "rating": 4.2,
     "reviews": 211,
     "address": "Pascucci Building, KAIST, Daejeon",
-    "images": ["Kaimaru_1.jpeg", "Kaimaru_2.jpg", "Kaimaru_3.jpg"]
+    "images": [
+      "Pascussi_1.jpg",
+      "Pascussi_2.jpg",
+      "Pascussi_3.jpg",
+      "Pascussi_4.jpeg",
+      "Pascussi_5.jpeg"
+    ]
   },
   {
     "id": 3,
@@ -30,18 +36,18 @@
     "rating": 4.8,
     "reviews": 1234,
     "address": "Main Library, KAIST, Daejeon",
-    "images": ["Kaimaru_1.jpeg", "Kaimaru_2.jpg", "Kaimaru_3.jpg"]
+    "images": ["Library_1.png", "Library_2.png", "Library_3.png"]
   },
   {
     "id": 4,
     "name": "Angelinus",
     "type": "cafe",
     "status": "Open",
-    "openingTime": "Opens at 08:00",
-    "rating": 3.9,
-    "reviews": 95,
-    "address": "Angelinus, near KAIST East Gate",
-    "images": ["JM_1.jpeg", "JM_2.jpeg", "JM_3.jpeg"]
+    "openingTime": "Opens at 9AM",
+    "rating": 4.6,
+    "reviews": 134,
+    "address": "Angelinus Coffee Daejeon KAIST Branch, Daejeon",
+    "images": ["Kaimaru_1.jpeg", "Kaimaru_2.jpg", "Kaimaru_3.jpg"]
   },
   {
     "id": 5,
@@ -52,17 +58,160 @@
     "rating": 4.5,
     "reviews": 187,
     "address": "Ogada, Eoeun-dong, Daejeon",
-    "images": ["Kaimaru_1.jpeg", "Kaimaru_2.jpg", "Kaimaru_3.jpg"]
+    "images": ["Ogada_1.png", "Ogada_2.png", "Ogada_3.png"]
   },
   {
     "id": 6,
     "name": "Subway",
     "type": "restaurant",
     "status": "Open",
-    "openingTime": "Opens at 11:00",
-    "rating": 4.1,
+    "openingTime": "Opens at 8AM",
+    "rating": 3.9,
     "reviews": 432,
     "address": "Subway Restaurant, KAIST Campus",
+    "images": ["Subway_1.jpg", "Subway_2.png", "Subway_3.png"]
+  },
+  {
+    "id": 7,
+    "name": "California Bakery",
+    "type": "cafe",
+    "status": "Open",
+    "openingTime": "Opens at 8AM",
+    "rating": 4.1,
+    "reviews": 287,
+    "address": "California Bakery, near E11, Daejeon",
+    "images": ["California_1.jpg", "California_2.png", "California_3.png"]
+  },
+  {
+    "id": 8,
+    "name": "Quiznos",
+    "type": "restaurant",
+    "status": "Open",
+    "openingTime": "Opens at 7:50AM",
+    "rating": 4.0,
+    "reviews": 58,
+    "address": "Quiznos KAIST Branch, Daejeon",
+    "images": ["Kaimaru_1.jpeg", "Kaimaru_2.jpg", "Kaimaru_3.jpg"]
+  },
+  {
+    "id": 9,
+    "name": "Jesoon",
+    "type": "restaurant",
+    "status": "Closed",
+    "openingTime": "Opens tomorrow at 10:30AM",
+    "rating": 4.3,
+    "reviews": 286,
+    "address": "Jesoon Restaurant Daejeon KAIST Branch, Daejeon",
+    "images": ["Kaimaru_1.jpeg", "Kaimaru_2.jpg", "Kaimaru_3.jpg"]
+  },
+  {
+    "id": 10,
+    "name": "O'Salad",
+    "type": "restaurant",
+    "status": "Open",
+    "openingTime": "Opens at 10AM",
+    "rating": 4.5,
+    "reviews": 216,
+    "address": "O'Salad KAIST Branch, Daejeon",
+    "images": ["Kaimaru_1.jpeg", "Kaimaru_2.jpg", "Kaimaru_3.jpg"]
+  },
+  {
+    "id": 11,
+    "name": "Pulbit Maru",
+    "type": "restaurant",
+    "status": "Closed",
+    "openingTime": "Opens tomorrow at 11AM",
+    "rating": 4.3,
+    "reviews": 119,
+    "address": "Pulbit Maru, behind N11, Daejeon",
+    "images": ["Bulpitmaru_1.jpg", "Bulpitmaru_1.jpg", "Bulpitmaru_1.jpg"]
+  },
+  {
+    "id": 12,
+    "name": "Professors' Cafeteria",
+    "type": "restaurant",
+    "status": "Closed",
+    "openingTime": "Opens tomorrow at 11:30AM",
+    "rating": 3.8,
+    "reviews": 303,
+    "address": "교수식당, at KAIST N6, Daejeon",
+    "images": ["Kaimaru_1.jpeg", "Kaimaru_2.jpg", "Kaimaru_3.jpg"]
+  },
+  {
+    "id": 13,
+    "name": "Tom N Toms Coffee",
+    "type": "cafe",
+    "status": "Open",
+    "openingTime": "Opens at 8AM",
+    "rating": 4.0,
+    "reviews": 70,
+    "address": "Tom N Toms Coffee Daejeon KAIST Branch, at KAIST N1, Daejeon",
+    "images": ["Kaimaru_1.jpeg", "Kaimaru_2.jpg", "Kaimaru_3.jpg"]
+  },
+  {
+    "id": 14,
+    "name": "Caffe Dream",
+    "type": "cafe",
+    "status": "Closed",
+    "openingTime": "Opens tomorrow at 8:30AM",
+    "rating": 4.4,
+    "reviews": 23,
+    "address": "Caffe Dream, at KAIST N7, Daejeon",
+    "images": ["Kaimaru_1.jpeg", "Kaimaru_2.jpg", "Kaimaru_3.jpg"]
+  },
+  {
+    "id": 15,
+    "name": "Cafe It",
+    "type": "cafe",
+    "status": "Closed",
+    "openingTime": "Opens tomorrow at 9AM",
+    "rating": 4.2,
+    "reviews": 57,
+    "address": "Cafe It KAIST Branch, at KAIST W2, Daejeon",
+    "images": ["Kaimaru_1.jpeg", "Kaimaru_2.jpg", "Kaimaru_3.jpg"]
+  },
+  {
+    "id": 16,
+    "name": "West Cafeteria",
+    "type": "restaurant",
+    "status": "Open",
+    "openingTime": "Opens at 11:30AM",
+    "rating": 3.3,
+    "reviews": 108,
+    "address": "West Cafeteria, at KAIST W2, Daejeon",
+    "images": ["West_caferia_1.png", "West_caferia_2.png", "West_caferia_3.png"]
+  },
+  {
+    "id": 17,
+    "name": "East Cafeteria",
+    "type": "restaurant",
+    "status": "Open",
+    "openingTime": "Opens at 11:30AM",
+    "rating": 3.1,
+    "reviews": 255,
+    "address": "East Cafeteria, at KAIST E5, Daejeon",
+    "images": ["East_cafeteria_1.png", "East_cafeteria_2.png", "East_cafeteria_3.png"]
+  },
+  {
+    "id": 18,
+    "name": "Daedeok Pizza",
+    "type": "restaurant",
+    "status": "Closed",
+    "openingTime": "Opens tomorrow at 11AM",
+    "rating": 4.4,
+    "reviews": 22,
+    "address": "대덕동네피자, at KAIST W2, Daejeon",
+    "images": ["Kaimaru_1.jpeg", "Kaimaru_2.jpg", "Kaimaru_3.jpg"]
+  },
+  {
+    "id": 19,
+    "name": "Undergraduate Library",
+    "type": "library",
+    "status": "Open",
+    "openingTime": "Open 24h",
+    "rating": 4.8,
+    "reviews": 245,
+    "address": "KAIST 교양분관 (N10), Daejeon",
     "images": ["Kaimaru_1.jpeg", "Kaimaru_2.jpg", "Kaimaru_3.jpg"]
   }
 ]

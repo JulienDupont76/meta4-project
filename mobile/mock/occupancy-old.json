@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "facilityId": 1,
+    "occupancyLevel": "medium",
+    "waitingTime": 10,
+    "occupancyData": {
+      "2025-06-06": [
+        { "hour": "8am", "occupancy": 15 },
+        { "hour": "9am", "occupancy": 10 },
+        { "hour": "10am", "occupancy": 55 },
+        { "hour": "11am", "occupancy": 70 },
+        { "hour": "12pm", "occupancy": 70 },
+        { "hour": "1pm", "occupancy": 60 },
+        { "hour": "2pm", "occupancy": 40 },
+        { "hour": "3pm", "occupancy": 30 },
+        { "hour": "4pm", "occupancy": 45 },
+        { "hour": "5pm", "occupancy": 80 },
+        { "hour": "6pm", "occupancy": 70 },
+        { "hour": "7pm", "occupancy": 50 },
+        { "hour": "8pm", "occupancy": 30 },
+        { "hour": "9pm", "occupancy": 15 },
+        { "hour": "10pm", "occupancy": 0 }
+      ],
+      "2025-06-07": [
+        { "hour": "8am", "occupancy": 15 },
+        { "hour": "9am", "occupancy": 10 },
+        { "hour": "10am", "occupancy": 55 },
+        { "hour": "11am", "occupancy": 70 },
+        { "hour": "12pm", "occupancy": 70 },
+        { "hour": "1pm", "occupancy": 60 },
+        { "hour": "2pm", "occupancy": 40 },
+        { "hour": "3pm", "occupancy": 30 },
+        { "hour": "4pm", "occupancy": 45 },
+        { "hour": "5pm", "occupancy": 80 },
+        { "hour": "6pm", "occupancy": 70 },
+        { "hour": "7pm", "occupancy": 50 },
+        { "hour": "8pm", "occupancy": 30 },
+        { "hour": "9pm", "occupancy": 15 },
+        { "hour": "10pm", "occupancy": 0 }
+      ]
+    }
+  }
+]

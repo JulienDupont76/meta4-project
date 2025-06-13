@@ -49,7 +49,7 @@ function RootLayoutNav() {
   return (
     <QueryClientProvider client={queryClient}>
       <TamaguiProvider config={config}>
-        <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+        <ThemeProvider value={colorScheme === 'light' ? DarkTheme : DefaultTheme}>
           <AuthProvider>
             <Stack>
               <Stack.Screen name="(auth)" options={{ animation: 'none', headerShown: false }} />

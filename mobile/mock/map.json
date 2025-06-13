@@ -40,5 +40,96 @@
     "latitude": 36.371224,
     "longitude": 127.362342,
     "type": "restaurant"
+  },
+  {
+    "id": 7,
+    "name": "California Bakery",
+    "latitude": 36.37023,
+    "longitude": 127.363678,
+    "type": "cafe"
+  },
+  {
+    "id": 8,
+    "name": "Quiznos",
+    "latitude": 36.373338,
+    "longitude": 127.360484,
+    "type": "restaurant"
+  },
+  {
+    "id": 9,
+    "name": "Jesoon",
+    "latitude": 36.373092,
+    "longitude": 127.36,
+    "type": "restaurant"
+  },
+  {
+    "id": 10,
+    "name": "O'Salad",
+    "latitude": 36.372007,
+    "longitude": 127.359081,
+    "type": "restaurant"
+  },
+  {
+    "id": 11,
+    "name": "Pulbit Maru",
+    "latitude": 36.374192,
+    "longitude": 127.359804,
+    "type": "restaurant"
+  },
+  {
+    "id": 12,
+    "name": "Professors' Cafeteria",
+    "latitude": 36.374656,
+    "longitude": 127.364851,
+    "type": "restaurant"
+  },
+  {
+    "id": 13,
+    "name": "Tom N Toms Coffee",
+    "latitude": 36.374145,
+    "longitude": 127.365413,
+    "type": "cafe"
+  },
+  {
+    "id": 14,
+    "name": "Caffe Dream",
+    "latitude": 36.372389,
+    "longitude": 127.358566,
+    "type": "cafe"
+  },
+  {
+    "id": 15,
+    "name": "Cafe It",
+    "latitude": 36.367596,
+    "longitude": 127.360496,
+    "type": "cafe"
+  },
+  {
+    "id": 16,
+    "name": "West Cafeteria",
+    "latitude": 36.366893,
+    "longitude": 127.360508,
+    "type": "restaurant"
+  },
+  {
+    "id": 17,
+    "name": "East Cafeteria",
+    "latitude": 36.369083,
+    "longitude": 127.363813,
+    "type": "restaurant"
+  },
+  {
+    "id": 18,
+    "name": "Daedeok Pizza",
+    "latitude": 36.367233,
+    "longitude": 127.360838,
+    "type": "restaurant"
+  },
+  {
+    "id": 19,
+    "name": "Undergraduate Library",
+    "latitude": 36.374455,
+    "longitude": 127.36038,
+    "type": "library"
   }
 ]

@@ -1,6 +1,4 @@
-import { urlAPI } from '@/constants/API';
 import { FacilityDTO, FacilityDTOSchema } from '@/types/dto';
-import { z } from 'zod';
 import mockFacilities from '@/mock/facility.json';
 
 const fetchFacilityData = async (id: number): Promise<FacilityDTO> => {
@@ -13,7 +11,6 @@ const fetchFacilityData = async (id: number): Promise<FacilityDTO> => {
   const json = mockFacilities;
 
   const raw = json.find((item) => item.id === id);
-  console.log('raw', raw);
 
   try {
     return FacilityDTOSchema.parse(raw);

@@ -1,13 +1,12 @@
 import { ActivityIndicator, StyleSheet, Text } from 'react-native';
 
 import MapView from 'react-native-maps';
-import Pins from '@/components/mapView/Pins';
+import Pins from '@/components/mapView/Pins/Pins';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { mapStyle } from '@/constants/MapConfig';
-import LocationDescription from '@/components/mapView/LocationDescription';
+import LocationDescription from '@/components/mapView/BottomSheet/LocationDescription';
 import { useRef, useState } from 'react';
 import BottomSheet from '@gorhom/bottom-sheet';
-import { RestaurantData } from '@/types/models/restaurant';
 import useMapPins from '@/hooks/useMapPins';
 import { View } from '@/components/Themed';
 

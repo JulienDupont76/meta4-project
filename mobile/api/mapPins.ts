@@ -1,4 +1,3 @@
-import { urlAPI } from '@/constants/API';
 import { MapPin, MapPinSchema } from '@/types/dto';
 import { z } from 'zod';
 import mockPins from '@/mock/map.json';
